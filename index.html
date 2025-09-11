@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ace of Fades Barbershop & Beauty Salon | Karen, Nairobi</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar styling for a sleek look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #718096;
+        }
+        /* Date/Time Picker Custom Styling */
+        input[type="date"], input[type="time"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-950 sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-2xl font-bold text-white">Ace of Fades</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-white hover:text-emerald-400 transition-colors">Home</a>
+                <a href="#about" class="text-white hover:text-emerald-400 transition-colors">About Us</a>
+                <a href="#services" class="text-white hover:text-emerald-400 transition-colors">Services</a>
+                <a href="#products" class="text-white hover:text-emerald-400 transition-colors">Products</a>
+                <a href="#gallery" class="text-white hover:text-emerald-400 transition-colors">Gallery</a>
+                <a href="#contact" class="text-white hover:text-emerald-400 transition-colors">Contact</a>
+                <button id="nav-book-button" class="bg-emerald-400 text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-emerald-500 transition-colors shadow-md">Book Now</button>
+                <button id="nav-cart-button" class="relative text-gray-900 px-4 py-2 rounded-full font-semibold bg-emerald-400 hover:bg-emerald-500 transition-colors shadow-md">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-item-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">0</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center space-x-4">
+                <button id="mobile-cart-button" class="relative text-gray-900 px-4 py-2 rounded-full font-semibold bg-emerald-400 hover:bg-emerald-500 transition-colors shadow-md">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="mobile-cart-item-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">0</span>
+                </button>
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-gray-950 bg-opacity-90 z-40 flex flex-col items-center justify-center space-y-8 text-2xl">
+            <button id="close-menu-button" class="absolute top-6 right-6 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="#home" class="text-white hover:text-emerald-400 transition-colors" onclick="closeMenu()">Home</a>
+            <a href="#about" class="text-white hover:text-emerald-400 transition-colors" onclick="closeMenu()">About Us</a>
+            <a href="#services" class="text-white hover:text-emerald-400 transition-colors" onclick="closeMenu()">Services</a>
+            <a href="#products" class="text-white hover:text-emerald-400 transition-colors" onclick="closeMenu()">Products</a>
+            <a href="#gallery" class="text-white hover:text-emerald-400 transition-colors" onclick="closeMenu()">Gallery</a>
+            <a href="#contact" class="text-white hover:text-emerald-400 transition-colors" onclick="closeMenu()">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="relative h-screen flex items-center justify-center text-center px-6 py-24 bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/1f2937/fff?text=Modern+Barbershop+Interior');">
+            <div class="absolute inset-0 bg-gray-900 opacity-70"></div>
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight">
+                    Precision Cuts, <span class="text-emerald-400">Perfect Styles</span>.
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+                    Welcome to Ace of Fades, where we combine artistry with expertise to deliver a premium grooming experience in the heart of Karen.
+                </p>
+                <div class="mt-8 flex justify-center space-x-4">
+                    <a href="#contact" class="bg-emerald-400 text-gray-900 px-8 py-3 rounded-full font-semibold text-lg hover:bg-emerald-500 transition-colors shadow-lg">Book an Appointment</a>
+                    <a href="#services" class="border border-emerald-400 text-emerald-400 px-8 py-3 rounded-full font-semibold text-lg hover:bg-emerald-400 hover:text-gray-900 transition-colors shadow-lg">Our Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 md:py-28 bg-gray-800">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center space-y-12 md:space-y-0 md:space-x-16">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/800x600/374151/e5e7eb?text=Barbers+and+Stylists" alt="Our team of professional barbers and stylists" class="rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">The Ace of Fades Story</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        Founded by a team of master barbers and stylists, Ace of Fades was born out of a desire to redefine grooming standards in Nairobi. We believe that a great haircut is more than just a service—it's an act of self-care and confidence. Our salon is a sanctuary where you can relax, connect with our skilled team, and leave feeling your absolute best.
+                    </p>
+                    <p class="mt-4 text-gray-400">
+                        We pride ourselves on our meticulous attention to detail, a commitment to using the highest quality products, and fostering a friendly, welcoming environment for every client.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section with Images and Testimonials -->
+        <section id="services" class="py-20 md:py-28 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Services</h2>
+                <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+                    Each service is delivered with precision and care, ensuring you get the best experience.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card: Precision Haircuts -->
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/600x400/374151/e5e7eb?text=Precision+Haircut" alt="A professional barber giving a precision haircut" class="rounded-xl mb-6 w-full object-cover">
+                        <h3 class="text-2xl font-bold text-white mb-2">Precision Haircuts</h3>
+                        <p class="text-gray-300 mb-4">
+                            Our master barbers are experts in the art of the perfect fade, classic cuts, and modern styles tailored to your unique look.
+                        </p>
+                        <div class="bg-gray-700 p-4 rounded-lg italic text-gray-400 border-l-4 border-emerald-400">
+                            "The best haircut I've ever had. The attention to detail is truly amazing!" - David M.
+                        </div>
+                    </div>
+
+                    <!-- Service Card: Hot Towel Shave -->
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/600x400/374151/e5e7eb?text=Hot+Towel+Shave" alt="A barber preparing a client for a hot towel shave" class="rounded-xl mb-6 w-full object-cover">
+                        <h3 class="text-2xl font-bold text-white mb-2">Hot Towel Shave</h3>
+                        <p class="text-gray-300 mb-4">
+                            Experience the ultimate in relaxation with our traditional hot towel shave, leaving your skin incredibly smooth and refreshed.
+                        </p>
+                        <div class="bg-gray-700 p-4 rounded-lg italic text-gray-400 border-l-4 border-emerald-400">
+                            "Pure bliss. The hot towel shave is a game-changer. So relaxing and my face feels great." - Peter K.
+                        </div>
+                    </div>
+
+                    <!-- Service Card: Beauty & Salon -->
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/600x400/374151/e5e7eb?text=Beauty+and+Salon" alt="A professional manicurist at work" class="rounded-xl mb-6 w-full object-cover">
+                        <h3 class="text-2xl font-bold text-white mb-2">Beauty & Salon</h3>
+                        <p class="text-gray-300 mb-4">
+                            From manicures to facial treatments, our professional beauty services will help you relax and revitalize.
+                        </p>
+                        <div class="bg-gray-700 p-4 rounded-lg italic text-gray-400 border-l-4 border-emerald-400">
+                            "My new favorite spot for a manicure. The staff is so friendly and the quality is amazing!" - Sarah W.
+                        </div>
+                    </div>
+
+                     <!-- Service Card: Massage Services -->
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/600x400/374151/e5e7eb?text=Massage+and+Wellness" alt="A professional giving a massage" class="rounded-xl mb-6 w-full object-cover">
+                        <h3 class="text-2xl font-bold text-white mb-2">Massage & Wellness</h3>
+                        <p class="text-gray-300 mb-4">
+                            Unwind and destress with our therapeutic massage services designed to relax your body and mind.
+                        </p>
+                        <div class="bg-gray-700 p-4 rounded-lg italic text-gray-400 border-l-4 border-emerald-400">
+                            "After a long week, this massage was exactly what I needed. I feel so much lighter and refreshed." - Ben A.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-20 md:py-28 bg-gray-800">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Product Line</h2>
+                <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+                    Bring the Ace of Fades experience home with our premium selection of hair and beauty products.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Product Card 1 -->
+                    <div class="bg-gray-900 p-6 rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/400x400/374151/e5e7eb?text=Hair+Wax" alt="Ace of Fades Hair Wax" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-bold text-white">Styling Hair Wax</h3>
+                        <p class="text-gray-400 mb-2">Strong hold, matte finish.</p>
+                        <p class="text-2xl font-bold text-emerald-400 mb-4">Ksh 1,800</p>
+                        <button class="add-to-cart w-full bg-emerald-400 text-gray-900 py-2 rounded-full font-semibold hover:bg-emerald-500 transition-colors" data-id="1" data-name="Styling Hair Wax" data-price="1800">Add to Cart</button>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div class="bg-gray-900 p-6 rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/400x400/374151/e5e7eb?text=Beard+Oil" alt="Ace of Fades Beard Oil" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-bold text-white">Beard & Face Oil</h3>
+                        <p class="text-gray-400 mb-2">Nourishes and softens.</p>
+                        <p class="text-2xl font-bold text-emerald-400 mb-4">Ksh 2,200</p>
+                        <button class="add-to-cart w-full bg-emerald-400 text-gray-900 py-2 rounded-full font-semibold hover:bg-emerald-500 transition-colors" data-id="2" data-name="Beard & Face Oil" data-price="2200">Add to Cart</button>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div class="bg-gray-900 p-6 rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/400x400/374151/e5e7eb?text=Shampoo" alt="Ace of Fades Clarifying Shampoo" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-bold text-white">Clarifying Shampoo</h3>
+                        <p class="text-gray-400 mb-2">Deep clean, gentle formula.</p>
+                        <p class="text-2xl font-bold text-emerald-400 mb-4">Ksh 1,500</p>
+                        <button class="add-to-cart w-full bg-emerald-400 text-gray-900 py-2 rounded-full font-semibold hover:bg-emerald-500 transition-colors" data-id="3" data-name="Clarifying Shampoo" data-price="1500">Add to Cart</button>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div class="bg-gray-900 p-6 rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/400x400/374151/e5e7eb?text=Lotion" alt="Ace of Fades Hydrating Lotion" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-bold text-white">Hydrating Lotion</h3>
+                        <p class="text-gray-400 mb-2">Moisturizes and protects.</p>
+                        <p class="text-2xl font-bold text-emerald-400 mb-4">Ksh 2,000</p>
+                        <button class="add-to-cart w-full bg-emerald-400 text-gray-900 py-2 rounded-full font-semibold hover:bg-emerald-500 transition-colors" data-id="4" data-name="Hydrating Lotion" data-price="2000">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard (Conceptual) -->
+        <section id="dashboard" class="py-20 md:py-28 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Community & Achievements</h2>
+                <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+                    The voice of our clients and our journey so far.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Testimonial Carousel -->
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg relative col-span-1 md:col-span-1">
+                        <h3 class="text-2xl font-bold text-white mb-4">Client Testimonials</h3>
+                        <div id="testimonial-carousel" class="relative">
+                            <div id="testimonial-slides" class="overflow-hidden relative h-40">
+                                <!-- Slides will be dynamically inserted here -->
+                            </div>
+                            <!-- Carousel Navigation -->
+                            <div class="flex justify-center items-center space-x-4 mt-6">
+                                <button id="prev-testimonial" class="text-emerald-400 hover:text-white transition-colors">
+                                    <i class="fas fa-chevron-left text-2xl"></i>
+                                </button>
+                                <span id="testimonial-counter" class="text-white font-semibold">1/3</span>
+                                <button id="next-testimonial" class="text-emerald-400 hover:text-white transition-colors">
+                                    <i class="fas fa-chevron-right text-2xl"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Statistics Card -->
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
+                        <h3 class="text-6xl font-bold text-emerald-400">5000+</h3>
+                        <p class="mt-2 text-2xl font-semibold text-white">Haircuts & Styles</p>
+                        <p class="text-gray-400 mt-2">We've proudly crafted over five thousand unique styles for our growing community.</p>
+                    </div>
+                    <!-- Achievement Card -->
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
+                        <h3 class="text-6xl font-bold text-emerald-400">20+</h3>
+                        <p class="mt-2 text-2xl font-semibold text-white">Years of Experience</p>
+                        <p class="text-gray-400 mt-2">Our team of experts brings a collective two decades of experience to the chair.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 md:py-28 bg-gray-800">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Gallery</h2>
+                <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+                    A picture is worth a thousand words. See the precision and artistry of our work.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Images with data attributes for lightbox -->
+                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Classic+Taper+Fade" data-img-alt="A clean, classic taper fade haircut">
+                        <img src="https://placehold.co/600x600/374151/e5e7eb?text=Classic+Taper+Fade" alt="A clean, classic taper fade haircut" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                            <span class="text-white text-lg font-semibold">Taper Fade</span>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Hot+Towel+Shave" data-img-alt="A barber performing a hot towel shave">
+                        <img src="https://placehold.co/600x600/374151/e5e7eb?text=Hot+Towel+Shave" alt="A barber performing a hot towel shave" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                            <span class="text-white text-lg font-semibold">Hot Shave</span>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Kids+Haircut" data-img-alt="A child getting a stylish haircut">
+                        <img src="https://placehold.co/600x600/374151/e5e7eb?text=Kids+Haircut" alt="A child getting a stylish haircut" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                            <span class="text-white text-lg font-semibold">Kids Cut</span>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Ladies+Hair+Styling" data-img-alt="A stylist working on a woman's hair">
+                        <img src="https://placehold.co/600x600/374151/e5e7eb?text=Ladies+Hair+Styling" alt="A stylist working on a woman's hair" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                            <span class="text-white text-lg font-semibold">Hair Styling</span>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Beard+Grooming" data-img-alt="Close-up of a beard being trimmed">
+                        <img src="https://placehold.co/600x600/374151/e5e7eb?text=Beard+Grooming" alt="Close-up of a beard being trimmed" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                            <span class="text-white text-lg font-semibold">Beard Grooming</span>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Manicure+Service" data-img-alt="A detailed manicure service in progress">
+                        <img src="https://placehold.co/600x600/374151/e5e7eb?text=Manicure+Service" alt="A detailed manicure service in progress" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                            <span class="text-white text-lg font-semibold">Manicure</span>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Salon+Interior+View" data-img-alt="Interior view of the clean and modern salon">
+                        <img src="https://placehold.co/600x600/374151/e5e7eb?text=Salon+Interior+View" alt="Interior view of the clean and modern salon" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                            <span class="text-white text-lg font-semibold">Salon Interior</span>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Client+Smiling" data-img-alt="A happy client showing off their fresh haircut">
+                        <img src="https://placehold.co/600x600/374151/e5e7eb?text=Client+Smiling" alt="A happy client showing off their fresh haircut" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                            <span class="text-white text-lg font-semibold">Happy Client</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Lightbox Modal -->
+        <div id="lightbox-modal" class="fixed inset-0 bg-gray-950 bg-opacity-90 z-[100] hidden items-center justify-center p-4" onclick="closeLightbox()">
+            <div class="relative max-w-5xl max-h-5/6">
+                <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" onclick="event.stopPropagation();">
+                <button id="lightbox-close-button" class="absolute top-4 right-4 text-white text-4xl font-bold bg-gray-900 bg-opacity-50 hover:bg-opacity-75 p-2 rounded-full leading-none transition-colors" onclick="closeLightbox()">
+                    &times;
+                </button>
+                <div id="lightbox-caption" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center text-lg font-semibold bg-gray-950 bg-opacity-70 px-4 py-2 rounded-full"></div>
+            </div>
+        </div>
+        
+        <!-- Shopping Cart Modal -->
+        <div id="cart-modal" class="fixed inset-0 bg-gray-950 bg-opacity-80 hidden items-center justify-center z-[100]">
+            <div class="bg-gray-800 p-8 rounded-lg shadow-xl max-w-lg w-full text-center relative">
+                <button id="close-cart-button" class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                <h4 class="text-3xl font-bold mb-6 text-white">Your Cart</h4>
+                <div id="cart-items-list" class="space-y-4 max-h-80 overflow-y-auto pr-2">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+                <div id="cart-summary" class="mt-6 pt-4 border-t border-gray-700">
+                    <p class="text-xl font-bold text-white flex justify-between">
+                        <span>Total:</span>
+                        <span id="cart-total">Ksh 0</span>
+                    </p>
+                    <button id="checkout-button" class="mt-6 w-full bg-emerald-400 text-gray-900 py-3 rounded-full font-semibold hover:bg-emerald-500 transition-colors">Checkout</button>
+                </div>
+                <p id="empty-cart-message" class="text-gray-500 mt-4 hidden">Your cart is empty.</p>
+            </div>
+        </div>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="py-20 md:py-28 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Book Your Appointment</h2>
+                <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+                    Choose a date and time that works for you, and we'll take care of the rest.
+                </p>
+                <div class="flex flex-col lg:flex-row lg:space-x-12 space-y-12 lg:space-y-0">
+                    <!-- Contact Form -->
+                    <div class="lg:w-1/2 bg-gray-800 p-8 rounded-2xl shadow-xl">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-semibold text-white">Appointment Form</h3>
+                            <div class="text-sm text-gray-500">
+                                <span class="font-bold text-white">Your User ID:</span> <span id="user-id" class="break-all">...</span>
+                            </div>
+                        </div>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-400 text-left">Full Name</label>
+                                <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-emerald-400 focus:border-emerald-400 sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-400 text-left">Email Address</label>
+                                <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-emerald-400 focus:border-emerald-400 sm:text-sm">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="date" class="block text-sm font-medium text-gray-400 text-left">Preferred Date</label>
+                                    <input type="date" id="date" name="date" required class="mt-1 block w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm text-gray-300 focus:outline-none focus:ring-emerald-400 focus:border-emerald-400 sm:text-sm">
+                                </div>
+                                <div>
+                                    <label for="time" class="block text-sm font-medium text-gray-400 text-left">Preferred Time</label>
+                                    <input type="time" id="time" name="time" required class="mt-1 block w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm text-gray-300 focus:outline-none focus:ring-emerald-400 focus:border-emerald-400 sm:text-sm">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-gray-400 text-left">Service</label>
+                                <select id="service" name="service" required class="mt-1 block w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm text-gray-300 focus:outline-none focus:ring-emerald-400 focus:border-emerald-400 sm:text-sm">
+                                    <option value="">Select a service...</option>
+                                    <option value="Precision Haircut">Precision Haircut</option>
+                                    <option value="Hot Towel Shave">Hot Towel Shave</option>
+                                    <option value="Beard Trim & Shaping">Beard Trim & Shaping</option>
+                                    <option value="Kids Haircut">Kids Haircut</option>
+                                    <option value="Manicure & Pedicure">Manicure & Pedicure</option>
+                                    <option value="Hair Treatment">Hair Treatment</option>
+                                    <option value="Facial Treatment">Facial Treatment</option>
+                                    <option value="Eyebrow Shaping">Eyebrow Shaping</option>
+                                    <option value="Swedish Massage">Swedish Massage</option>
+                                    <option value="Deep Tissue Massage">Deep Tissue Massage</option>
+                                    <option value="Aromatherapy">Aromatherapy</option>
+                                    <option value="Hot Stone Therapy">Hot Stone Therapy</option>
+                                    <option value="Body Scrub">Body Scrub</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-400 text-left">Additional Comments (Optional)</label>
+                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-emerald-400 focus:border-emerald-400 sm:text-sm"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-emerald-400 text-gray-900 py-3 px-6 rounded-full font-semibold hover:bg-emerald-500 transition-colors shadow-lg">
+                                <span id="submit-text">Submit Appointment Request</span>
+                                <span id="loading-spinner" class="hidden fas fa-spinner fa-spin"></span>
+                            </button>
+                        </form>
+
+                        <div class="mt-8">
+                            <h4 class="text-xl font-semibold text-white mb-4">Your Booked Appointments</h4>
+                            <div id="appointments-list" class="space-y-4">
+                                <p class="text-gray-500" id="no-appointments-message">Loading your appointments...</p>
+                                <!-- Appointments will be dynamically added here -->
+                            </div>
+                        </div>
+
+                        <!-- Message Box Modal -->
+                        <div id="message-box" class="fixed inset-0 bg-gray-950 bg-opacity-80 hidden items-center justify-center z-50">
+                            <div class="bg-gray-800 p-8 rounded-lg shadow-xl max-w-sm w-full text-center">
+                                <h4 id="message-box-title" class="text-2xl font-bold mb-4"></h4>
+                                <p id="message-box-text" class="text-gray-300"></p>
+                                <button id="message-box-close" class="mt-6 bg-emerald-400 text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-emerald-500">Close</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Details & Map -->
+                    <div class="lg:w-1/2 space-y-8">
+                        <div class="bg-gray-800 p-8 rounded-2xl shadow-xl">
+                            <h3 class="text-2xl font-semibold text-white mb-4">Visit Us</h3>
+                            <p class="text-gray-300 flex items-center space-x-3 mb-2">
+                                <i class="fas fa-map-marker-alt text-emerald-400"></i>
+                                <span>Karen Road, Nairobi, Kenya</span>
+                            </p>
+                            <p class="text-gray-300 flex items-center space-x-3 mb-2">
+                                <i class="fas fa-phone-alt text-emerald-400"></i>
+                                <span>+254 793 512 077</span>
+                                <span>+254 726 392 544</span>
+                                <span>+254 792 136 268</span>
+                            </p>
+                            <p class="text-gray-300 flex items-center space-x-3">
+                                <i class="fas fa-envelope text-emerald-400"></i>
+                                <span>info@aceoffades.co.ke</span>
+                            </p>
+                            <div class="mt-6">
+                                <h4 class="font-semibold text-white mb-2">Business Hours</h4>
+                                <ul class="text-gray-300">
+                                    <li>Mon - Fri: 9:00 AM - 7:00 PM</li>
+                                    <li>Sat: 10:00 AM - 6:00 PM</li>
+                                    <li>Sun: 10:00 AM - 5:00 PM</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15954.912662058428!2d36.72120017165039!3d-1.3444265147480525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f05a18a0e88c5%3A0xc3b9514757c21f92!2sKaren%2C%20Nairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1678235280201!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="text-gray-400 hover:text-emerald-400 transition-colors"><i class="fab fa-facebook-f text-2xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-emerald-400 transition-colors"><i class="fab fa-instagram text-2xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-emerald-400 transition-colors"><i class="fab fa-twitter text-2xl"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2024 Ace of Fades. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Image Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-gray-950 bg-opacity-90 z-[100] hidden items-center justify-center p-4" onclick="closeLightbox()">
+        <div class="relative max-w-5xl max-h-5/6">
+            <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" onclick="event.stopPropagation();">
+            <button id="lightbox-close-button" class="absolute top-4 right-4 text-white text-4xl font-bold bg-gray-900 bg-opacity-50 hover:bg-opacity-75 p-2 rounded-full leading-none transition-colors" onclick="closeLightbox()">
+                &times;
+            </button>
+            <div id="lightbox-caption" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center text-lg font-semibold bg-gray-950 bg-opacity-70 px-4 py-2 rounded-full"></div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, addDoc, onSnapshot, collection, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global variables provided by the environment
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+        let db;
+        let auth;
+        let userId = null;
+
+        // Function to initialize Firebase and sign in
+        async function initializeFirebaseAndSignIn() {
+            if (Object.keys(firebaseConfig).length === 0) {
+                console.error("Firebase config is not available.");
+                return;
+            }
+
+            try {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        document.getElementById('user-id').textContent = userId;
+                        console.log("User signed in with ID:", userId);
+                        // Start listening for appointments only after auth is ready
+                        setupAppointmentsListener();
+                    } else {
+                        console.log("No user signed in. Attempting anonymous sign-in.");
+                        try {
+                            if (initialAuthToken) {
+                                await signInWithCustomToken(auth, initialAuthToken);
+                            } else {
+                                await signInAnonymously(auth);
+                            }
+                        } catch (error) {
+                            console.error("Firebase authentication error:", error);
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error("Firebase initialization failed:", error);
+            }
+        }
+
+        // Function to set up the real-time listener for appointments
+        function setupAppointmentsListener() {
+            if (!db || !userId) {
+                console.error("Firestore or user ID not available yet.");
+                return;
+            }
+
+            const appointmentsCollectionRef = collection(db, `artifacts/${appId}/users/${userId}/appointments`);
+            const q = query(appointmentsCollectionRef);
+            
+            onSnapshot(q, (querySnapshot) => {
+                const appointmentsList = document.getElementById('appointments-list');
+                appointmentsList.innerHTML = ''; // Clear previous list
+                if (querySnapshot.empty) {
+                    appointmentsList.innerHTML = `<p class="text-gray-500">You have no booked appointments.</p>`;
+                } else {
+                    querySnapshot.forEach((doc) => {
+                        const data = doc.data();
+                        const appointmentItem = document.createElement('div');
+                        appointmentItem.className = 'bg-gray-700 p-4 rounded-lg shadow';
+                        appointmentItem.innerHTML = `
+                            <p class="text-lg font-semibold text-emerald-400">${data.service}</p>
+                            <p class="text-gray-400"><strong>Date:</strong> ${data.date}</p>
+                            <p class="text-gray-400"><strong>Time:</strong> ${data.time}</p>
+                            <p class="text-gray-400"><strong>Name:</strong> ${data.name}</p>
+                        `;
+                        appointmentsList.appendChild(appointmentItem);
+                    });
+                }
+            });
+        }
+
+        // Wait for the DOM to be fully loaded before initializing Firebase
+        window.addEventListener('DOMContentLoaded', () => {
+            initializeFirebaseAndSignIn();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuButton = document.getElementById('close-menu-button');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Disable scrolling when menu is open
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        };
+
+        closeMenuButton.addEventListener('click', closeMenu);
+
+        // Close menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Contact form submission handling
+        const contactForm = document.getElementById('contact-form');
+        const messageBox = document.getElementById('message-box');
+        const messageBoxTitle = document.getElementById('message-box-title');
+        const messageBoxText = document.getElementById('message-box-text');
+        const messageBoxClose = document.getElementById('message-box-close');
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const submitText = document.getElementById('submit-text');
+        const loadingSpinner = document.getElementById('loading-spinner');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!db || !userId) {
+                messageBoxTitle.textContent = "Error!";
+                messageBoxText.textContent = "Database not ready. Please try again in a moment.";
+                messageBox.classList.remove('hidden');
+                messageBox.classList.add('flex');
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitText.classList.add('hidden');
+            loadingSpinner.classList.remove('hidden');
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value || "No additional comments.",
+                timestamp: new Date()
+            };
+
+            try {
+                const appointmentsCollectionRef = collection(db, `artifacts/${appId}/users/${userId}/appointments`);
+                await addDoc(appointmentsCollectionRef, formData);
+                
+                messageBoxTitle.textContent = "Appointment Request Submitted!";
+                messageBoxText.textContent = "Thank you! Your appointment has been successfully booked.";
+                messageBox.classList.remove('hidden');
+                messageBox.classList.add('flex');
+                
+                contactForm.reset();
+            } catch (error) {
+                console.error("Error submitting appointment:", error);
+                messageBoxTitle.textContent = "Submission Failed!";
+                messageBoxText.textContent = "There was an error booking your appointment. Please try again.";
+                messageBox.classList.remove('hidden');
+                messageBox.classList.add('flex');
+            } finally {
+                submitButton.disabled = false;
+                submitText.classList.remove('hidden');
+                loadingSpinner.classList.add('hidden');
+            }
+        });
+
+        messageBoxClose.addEventListener('click', () => {
+            messageBox.classList.remove('flex');
+            messageBox.classList.add('hidden');
+        });
+
+
+        // Lightbox functionality
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const galleryImages = document.querySelectorAll('#gallery .group');
+
+        galleryImages.forEach(imageContainer => {
+            imageContainer.addEventListener('click', () => {
+                const imgSrc = imageContainer.getAttribute('data-img-src');
+                const imgAlt = imageContainer.getAttribute('data-img-alt');
+
+                lightboxImage.src = imgSrc;
+                lightboxImage.alt = imgAlt;
+                lightboxCaption.textContent = imgAlt;
+
+                lightboxModal.classList.remove('hidden');
+                lightboxModal.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Prevent body scroll
+            });
+        });
+
+        const closeLightbox = () => {
+            lightboxModal.classList.remove('flex');
+            lightboxModal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Re-enable body scroll
+        };
+
+        // Testimonial Carousel functionality
+        const testimonials = [
+            {
+                quote: "The attention to detail and friendly atmosphere at Ace of Fades is unmatched. My go-to spot for a fresh look every time. Highly recommended!",
+                author: "Jane W.",
+                title: "Loyal Client"
+            },
+            {
+                quote: "I've been coming here for years and I'm always impressed. The barbers are truly artists, and the hot towel shave is a must-try experience.",
+                author: "Mark O.",
+                title: "Regular Customer"
+            },
+            {
+                quote: "I brought my son in for his first professional haircut and the team was fantastic with him. They made it a memorable and fun experience!",
+                author: "Susan K.",
+                title: "Happy Parent"
+            }
+        ];
+
+        const slidesContainer = document.getElementById('testimonial-slides');
+        const prevBtn = document.getElementById('prev-testimonial');
+        const nextBtn = document.getElementById('next-testimonial');
+        const counterSpan = document.getElementById('testimonial-counter');
+        let currentSlide = 0;
+
+        function renderTestimonials() {
+            slidesContainer.innerHTML = '';
+            testimonials.forEach((testimonial, index) => {
+                const slide = document.createElement('div');
+                slide.className = `absolute inset-0 transition-opacity duration-500 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`;
+                slide.innerHTML = `
+                    <div class="flex items-center justify-center mb-4">
+                        <i class="fas fa-quote-left text-3xl text-emerald-400"></i>
+                    </div>
+                    <p class="italic text-gray-300">
+                        "${testimonial.quote}"
+                    </p>
+                    <p class="mt-4 font-bold text-white">- ${testimonial.author}</p>
+                    <p class="text-sm text-gray-400">${testimonial.title}</p>
+                `;
+                slidesContainer.appendChild(slide);
+            });
+            counterSpan.textContent = `${currentSlide + 1}/${testimonials.length}`;
+        }
+
+        function showNextSlide() {
+            currentSlide = (currentSlide + 1) % testimonials.length;
+            renderTestimonials();
+        }
+
+        function showPrevSlide() {
+            currentSlide = (currentSlide - 1 + testimonials.length) % testimonials.length;
+            renderTestimonials();
+        }
+
+        prevBtn.addEventListener('click', showPrevSlide);
+        nextBtn.addEventListener('click', showNextSlide);
+
+        // Auto-slide functionality
+        setInterval(showNextSlide, 7000); // Change slide every 7 seconds
+
+        // Initial render
+        renderTestimonials();
+
+        // Shopping Cart Functionality
+        const cartModal = document.getElementById('cart-modal');
+        const cartItemsList = document.getElementById('cart-items-list');
+        const cartTotalSpan = document.getElementById('cart-total');
+        const navCartButton = document.getElementById('nav-cart-button');
+        const mobileCartButton = document.getElementById('mobile-cart-button');
+        const closeCartButton = document.getElementById('close-cart-button');
+        const checkoutButton = document.getElementById('checkout-button');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        const navItemCount = document.getElementById('cart-item-count');
+        const mobileItemCount = document.getElementById('mobile-cart-item-count');
+        
+        let cart = [];
+
+        function updateCartDisplay() {
+            cartItemsList.innerHTML = '';
+            let total = 0;
+            if (cart.length === 0) {
+                emptyCartMessage.classList.remove('hidden');
+                cartTotalSpan.textContent = 'Ksh 0';
+                checkoutButton.disabled = true;
+            } else {
+                emptyCartMessage.classList.add('hidden');
+                checkoutButton.disabled = false;
+                cart.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'flex justify-between items-center bg-gray-700 p-4 rounded-lg';
+                    itemElement.innerHTML = `
+                        <p class="text-white font-semibold">${item.name}</p>
+                        <p class="text-gray-400">Ksh ${item.price}</p>
+                    `;
+                    cartItemsList.appendChild(itemElement);
+                    total += item.price;
+                });
+                cartTotalSpan.textContent = `Ksh ${total}`;
+            }
+            navItemCount.textContent = cart.length;
+            mobileItemCount.textContent = cart.length;
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productId = e.target.getAttribute('data-id');
+                const productName = e.target.getAttribute('data-name');
+                const productPrice = parseInt(e.target.getAttribute('data-price'));
+                
+                const existingItem = cart.find(item => item.id === productId);
+                if (!existingItem) {
+                    cart.push({ id: productId, name: productName, price: productPrice });
+                    messageBoxTitle.textContent = "Item Added to Cart!";
+                    messageBoxText.textContent = `${productName} has been added.`;
+                    messageBox.classList.remove('hidden');
+                    messageBox.classList.add('flex');
+                } else {
+                    messageBoxTitle.textContent = "Item Already In Cart";
+                    messageBoxText.textContent = `${productName} is already in your cart.`;
+                    messageBox.classList.remove('hidden');
+                    messageBox.classList.add('flex');
+                }
+                updateCartDisplay();
+            });
+        });
+
+        navCartButton.addEventListener('click', () => {
+            cartModal.classList.remove('hidden');
+            cartModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileCartButton.addEventListener('click', () => {
+            cartModal.classList.remove('hidden');
+            cartModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeCartButton.addEventListener('click', () => {
+            cartModal.classList.remove('flex');
+            cartModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        checkoutButton.addEventListener('click', () => {
+            if (cart.length > 0) {
+                cartModal.classList.remove('flex');
+                cartModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                
+                messageBoxTitle.textContent = "Checkout Successful!";
+                messageBoxText.textContent = "Thank you for your purchase! Your order has been placed.";
+                messageBox.classList.remove('hidden');
+                messageBox.classList.add('flex');
+
+                cart = [];
+                updateCartDisplay();
+            }
+        });
+    </script>
+</body>
+</html>
