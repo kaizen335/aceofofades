@@ -36,6 +36,15 @@
             -moz-appearance: none;
             appearance: none;
         }
+        /* Gallery Tab styling for active state */
+        .gallery-tab.active {
+            background-color: #34d399;
+            color: #1f2937;
+            border-color: transparent;
+        }
+        .gallery-tab {
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
@@ -664,11 +673,11 @@
 
                 // Update tab styles
                 galleryTabs.forEach(t => {
-                    t.classList.remove('bg-emerald-400', 'text-gray-900', 'border-transparent');
+                    t.classList.remove('bg-emerald-400', 'text-gray-900');
                     t.classList.add('text-emerald-400', 'border', 'border-emerald-400', 'hover:bg-emerald-400', 'hover:text-gray-900');
                 });
                 tab.classList.remove('text-emerald-400', 'border', 'border-emerald-400', 'hover:bg-emerald-400', 'hover:text-gray-900');
-                tab.classList.add('bg-emerald-400', 'text-gray-900', 'border-transparent');
+                tab.classList.add('bg-emerald-400', 'text-gray-900');
 
                 // Hide all content and show the active one
                 galleryContents.forEach(content => {
@@ -683,32 +692,60 @@
             });
         });
 
-        // Lightbox functionality
+        // Lightbox functionality (Improved with History API)
         const lightboxModal = document.getElementById('lightbox-modal');
         const lightboxImage = document.getElementById('lightbox-image');
         const lightboxCaption = document.getElementById('lightbox-caption');
         const galleryImages = document.querySelectorAll('.gallery-image-container');
+        const lightboxCloseButton = document.getElementById('lightbox-close-button');
+
+        function openLightbox(imgSrc, imgAlt) {
+            lightboxImage.src = imgSrc;
+            lightboxImage.alt = imgAlt;
+            lightboxCaption.textContent = imgAlt;
+            lightboxModal.classList.remove('hidden');
+            lightboxModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            history.pushState({ lightboxOpen: true, src: imgSrc, alt: imgAlt }, '', '#lightbox');
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.remove('flex');
+            lightboxModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
 
         galleryImages.forEach(imageContainer => {
             imageContainer.addEventListener('click', () => {
                 const imgSrc = imageContainer.getAttribute('data-img-src');
                 const imgAlt = imageContainer.getAttribute('data-img-alt');
-
-                lightboxImage.src = imgSrc;
-                lightboxImage.alt = imgAlt;
-                lightboxCaption.textContent = imgAlt;
-
-                lightboxModal.classList.remove('hidden');
-                lightboxModal.classList.add('flex');
-                document.body.style.overflow = 'hidden'; // Prevent body scroll
+                openLightbox(imgSrc, imgAlt);
             });
         });
+        
+        // Handle closing the lightbox via the close button
+        lightboxCloseButton.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent the modal from closing when clicking the button
+            history.back(); // Go back in history, which triggers popstate
+        });
+        
+        // Handle clicking on the background to close the lightbox
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                history.back(); // Go back in history
+            }
+        });
 
-        const closeLightbox = () => {
-            lightboxModal.classList.remove('flex');
-            lightboxModal.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Re-enable body scroll
-        };
+        // Handle the browser's back button
+        window.addEventListener('popstate', (e) => {
+            if (window.location.hash !== '#lightbox' && lightboxModal.classList.contains('flex')) {
+                closeLightbox();
+            } else if (e.state && e.state.lightboxOpen) {
+                // Re-open if navigating forward
+                openLightbox(e.state.src, e.state.alt);
+            }
+        });
+
 
         // Testimonial Carousel functionality
         const testimonials = [
