@@ -53,22 +53,13 @@
                 <a href="#home" class="text-white hover:text-emerald-400 transition-colors">Home</a>
                 <a href="#about" class="text-white hover:text-emerald-400 transition-colors">About Us</a>
                 <a href="#services" class="text-white hover:text-emerald-400 transition-colors">Services</a>
-                <a href="#products" class="text-white hover:text-emerald-400 transition-colors">Products</a>
                 <a href="#gallery" class="text-white hover:text-emerald-400 transition-colors">Gallery</a>
                 <a href="#contact" class="text-white hover:text-emerald-400 transition-colors">Contact</a>
-                <button id="nav-book-button" class="bg-emerald-400 text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-emerald-500 transition-colors shadow-md">Book Now</button>
-                <button id="nav-cart-button" class="relative text-gray-900 px-4 py-2 rounded-full font-semibold bg-emerald-400 hover:bg-emerald-500 transition-colors shadow-md">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span id="cart-item-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">0</span>
-                </button>
+                <a href="#contact" class="bg-emerald-400 text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-emerald-500 transition-colors shadow-md">Book Now</a>
             </div>
 
             <!-- Mobile Menu Button -->
             <div class="md:hidden flex items-center space-x-4">
-                <button id="mobile-cart-button" class="relative text-gray-900 px-4 py-2 rounded-full font-semibold bg-emerald-400 hover:bg-emerald-500 transition-colors shadow-md">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span id="mobile-cart-item-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">0</span>
-                </button>
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -87,7 +78,6 @@
             <a href="#home" class="text-white hover:text-emerald-400 transition-colors" onclick="closeMenu()">Home</a>
             <a href="#about" class="text-white hover:text-emerald-400 transition-colors" onclick="closeMenu()">About Us</a>
             <a href="#services" class="text-white hover:text-emerald-400 transition-colors" onclick="closeMenu()">Services</a>
-            <a href="#products" class="text-white hover:text-emerald-400 transition-colors" onclick="closeMenu()">Products</a>
             <a href="#gallery" class="text-white hover:text-emerald-400 transition-colors" onclick="closeMenu()">Gallery</a>
             <a href="#contact" class="text-white hover:text-emerald-400 transition-colors" onclick="closeMenu()">Contact</a>
         </div>
@@ -188,52 +178,8 @@
             </div>
         </section>
 
-        <!-- Products Section -->
-        <section id="products" class="py-20 md:py-28 bg-gray-800">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Product Line</h2>
-                <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
-                    Bring the Ace of Fades experience home with our premium selection of hair and beauty products.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Product Card 1 -->
-                    <div class="bg-gray-900 p-6 rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x400/374151/e5e7eb?text=Hair+Wax" alt="Ace of Fades Hair Wax" class="rounded-lg mb-4 w-full h-48 object-cover">
-                        <h3 class="text-xl font-bold text-white">Styling Hair Wax</h3>
-                        <p class="text-gray-400 mb-2">Strong hold, matte finish.</p>
-                        <p class="text-2xl font-bold text-emerald-400 mb-4">Ksh 1,800</p>
-                        <button class="add-to-cart w-full bg-emerald-400 text-gray-900 py-2 rounded-full font-semibold hover:bg-emerald-500 transition-colors" data-id="1" data-name="Styling Hair Wax" data-price="1800">Add to Cart</button>
-                    </div>
-                    <!-- Product Card 2 -->
-                    <div class="bg-gray-900 p-6 rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x400/374151/e5e7eb?text=Beard+Oil" alt="Ace of Fades Beard Oil" class="rounded-lg mb-4 w-full h-48 object-cover">
-                        <h3 class="text-xl font-bold text-white">Beard & Face Oil</h3>
-                        <p class="text-gray-400 mb-2">Nourishes and softens.</p>
-                        <p class="text-2xl font-bold text-emerald-400 mb-4">Ksh 2,200</p>
-                        <button class="add-to-cart w-full bg-emerald-400 text-gray-900 py-2 rounded-full font-semibold hover:bg-emerald-500 transition-colors" data-id="2" data-name="Beard & Face Oil" data-price="2200">Add to Cart</button>
-                    </div>
-                    <!-- Product Card 3 -->
-                    <div class="bg-gray-900 p-6 rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x400/374151/e5e7eb?text=Shampoo" alt="Ace of Fades Clarifying Shampoo" class="rounded-lg mb-4 w-full h-48 object-cover">
-                        <h3 class="text-xl font-bold text-white">Clarifying Shampoo</h3>
-                        <p class="text-gray-400 mb-2">Deep clean, gentle formula.</p>
-                        <p class="text-2xl font-bold text-emerald-400 mb-4">Ksh 1,500</p>
-                        <button class="add-to-cart w-full bg-emerald-400 text-gray-900 py-2 rounded-full font-semibold hover:bg-emerald-500 transition-colors" data-id="3" data-name="Clarifying Shampoo" data-price="1500">Add to Cart</button>
-                    </div>
-                    <!-- Product Card 4 -->
-                    <div class="bg-gray-900 p-6 rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x400/374151/e5e7eb?text=Lotion" alt="Ace of Fades Hydrating Lotion" class="rounded-lg mb-4 w-full h-48 object-cover">
-                        <h3 class="text-xl font-bold text-white">Hydrating Lotion</h3>
-                        <p class="text-gray-400 mb-2">Moisturizes and protects.</p>
-                        <p class="text-2xl font-bold text-emerald-400 mb-4">Ksh 2,000</p>
-                        <button class="add-to-cart w-full bg-emerald-400 text-gray-900 py-2 rounded-full font-semibold hover:bg-emerald-500 transition-colors" data-id="4" data-name="Hydrating Lotion" data-price="2000">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Dashboard (Conceptual) -->
-        <section id="dashboard" class="py-20 md:py-28 bg-gray-900">
+        <section id="dashboard" class="py-20 md:py-28 bg-gray-800">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Community & Achievements</h2>
                 <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
@@ -241,7 +187,7 @@
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Testimonial Carousel -->
-                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg relative col-span-1 md:col-span-1">
+                    <div class="bg-gray-900 p-8 rounded-2xl shadow-lg relative col-span-1 md:col-span-1">
                         <h3 class="text-2xl font-bold text-white mb-4">Client Testimonials</h3>
                         <div id="testimonial-carousel" class="relative">
                             <div id="testimonial-slides" class="overflow-hidden relative h-40">
@@ -260,13 +206,13 @@
                         </div>
                     </div>
                     <!-- Statistics Card -->
-                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
+                    <div class="bg-gray-900 p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
                         <h3 class="text-6xl font-bold text-emerald-400">5000+</h3>
                         <p class="mt-2 text-2xl font-semibold text-white">Haircuts & Styles</p>
                         <p class="text-gray-400 mt-2">We've proudly crafted over five thousand unique styles for our growing community.</p>
                     </div>
                     <!-- Achievement Card -->
-                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
+                    <div class="bg-gray-900 p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
                         <h3 class="text-6xl font-bold text-emerald-400">20+</h3>
                         <p class="mt-2 text-2xl font-semibold text-white">Years of Experience</p>
                         <p class="text-gray-400 mt-2">Our team of experts brings a collective two decades of experience to the chair.</p>
@@ -276,60 +222,117 @@
         </section>
 
         <!-- Gallery Section -->
-        <section id="gallery" class="py-20 md:py-28 bg-gray-800">
+        <section id="gallery" class="py-20 md:py-28 bg-gray-900">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Gallery</h2>
                 <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
                     A picture is worth a thousand words. See the precision and artistry of our work.
                 </p>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <!-- Images with data attributes for lightbox -->
-                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="image0.jpeg" data-img-alt="A clean, classic taper fade haircut">
-                        <img src="image0.jpeg" alt="A clean, classic taper fade haircut" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
-                            <span class="text-white text-lg font-semibold">Pedicure + Gel on Natural Nails</span>
+                
+                <!-- Gallery Tabs -->
+                <div class="flex flex-wrap justify-center space-x-2 md:space-x-4 mb-12">
+                    <button class="gallery-tab px-6 py-2 rounded-full font-semibold text-sm md:text-base transition-colors duration-300 bg-emerald-400 text-gray-900" data-tab="barbering">Barbering</button>
+                    <button class="gallery-tab px-6 py-2 rounded-full font-semibold text-sm md:text-base transition-colors duration-300 hover:bg-emerald-400 hover:text-gray-900 text-emerald-400 border border-emerald-400" data-tab="hair">Hair</button>
+                    <button class="gallery-tab px-6 py-2 rounded-full font-semibold text-sm md:text-base transition-colors duration-300 hover:bg-emerald-400 hover:text-gray-900 text-emerald-400 border border-emerald-400" data-tab="beauty">Beauty</button>
+                    <button class="gallery-tab px-6 py-2 rounded-full font-semibold text-sm md:text-base transition-colors duration-300 hover:bg-emerald-400 hover:text-gray-900 text-emerald-400 border border-emerald-400" data-tab="reels">Reels</button>
+                </div>
+
+                <!-- Gallery Content -->
+                <div id="gallery-content">
+                    <!-- Barbering Tab Content -->
+                    <div class="gallery-tab-content grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 active" data-tab-content="barbering">
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer gallery-image-container" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Classic+Taper+Fade" data-img-alt="A clean, classic taper fade haircut">
+                            <img src="https://placehold.co/600x600/374151/e5e7eb?text=Classic+Taper+Fade" alt="A clean, classic taper fade haircut" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Taper Fade</span>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer gallery-image-container" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Hot+Towel+Shave" data-img-alt="A barber performing a hot towel shave">
+                            <img src="https://placehold.co/600x600/374151/e5e7eb?text=Hot+Towel+Shave" alt="A barber performing a hot towel shave" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Hot Shave</span>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer gallery-image-container" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Beard+Grooming" data-img-alt="Close-up of a beard being trimmed">
+                            <img src="https://placehold.co/600x600/374151/e5e7eb?text=Beard+Grooming" alt="Close-up of a beard being trimmed" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Beard Grooming</span>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer gallery-image-container" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Kids+Haircut" data-img-alt="A child getting a stylish haircut">
+                            <img src="https://placehold.co/600x600/374151/e5e7eb?text=Kids+Haircut" alt="A child getting a stylish haircut" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Kids Cut</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="image1.jpeg" data-img-alt="A barber performing a hot towel shave">
-                        <img src="image1.jpeg" alt="A barber performing a hot towel shave" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
-                            <span class="text-white text-lg font-semibold">Hot Shave</span>
+                    <!-- Hair Tab Content -->
+                    <div class="gallery-tab-content hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" data-tab-content="hair">
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer gallery-image-container" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Ladies+Hair+Styling" data-img-alt="A stylist working on a woman's hair">
+                            <img src="https://placehold.co/600x600/374151/e5e7eb?text=Ladies+Hair+Styling" alt="A stylist working on a woman's hair" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Hair Styling</span>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer gallery-image-container" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Hair+Treatment" data-img-alt="A professional hair treatment">
+                            <img src="https://placehold.co/600x600/374151/e5e7eb?text=Hair+Treatment" alt="A professional hair treatment" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Hair Treatment</span>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer gallery-image-container" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Hair+Coloring" data-img-alt="Hair coloring in progress">
+                            <img src="https://placehold.co/600x600/374151/e5e7eb?text=Hair+Coloring" alt="Hair coloring in progress" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Hair Coloring</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="image2.jpeg" data-img-alt="A child getting a stylish haircut">
-                        <img src="image2.jpeg" alt="A child getting a stylish haircut" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
-                            <span class="text-white text-lg font-semibold">Kids Cut</span>
+                    <!-- Beauty Tab Content -->
+                    <div class="gallery-tab-content hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" data-tab-content="beauty">
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer gallery-image-container" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Manicure+Service" data-img-alt="A detailed manicure service in progress">
+                            <img src="https://placehold.co/600x600/374151/e5e7eb?text=Manicure+Service" alt="A detailed manicure service in progress" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Manicure</span>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer gallery-image-container" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Facial+Treatment" data-img-alt="A relaxing facial treatment">
+                            <img src="https://placehold.co/600x600/374151/e5e7eb?text=Facial+Treatment" alt="A relaxing facial treatment" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Facial Treatment</span>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer gallery-image-container" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Eyebrow+Shaping" data-img-alt="Professional eyebrow shaping">
+                            <img src="https://placehold.co/600x600/374151/e5e7eb?text=Eyebrow+Shaping" alt="Professional eyebrow shaping" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Eyebrow Shaping</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="image3.jpeg" data-img-alt="A stylist working on a woman's hair">
-                        <img src="image3.jpeg" alt="A stylist working on a woman's hair" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
-                            <span class="text-white text-lg font-semibold">Hair Styling</span>
+                    <!-- Reels Tab Content -->
+                    <div class="gallery-tab-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-tab-content="reels">
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer">
+                            <div class="aspect-w-9 aspect-h-16 w-full h-96">
+                                <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=lJ1l410o2V-dG-lP&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Watch Our Reel</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="video1.mp4" data-img-alt="Close-up of a beard being trimmed">
-                        <img src="video1.mp4" alt="Close-up of a beard being trimmed" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
-                            <span class="text-white text-lg font-semibold">Beard Grooming</span>
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer">
+                            <div class="aspect-w-9 aspect-h-16 w-full h-96">
+                                <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/oG08ukbX0aI?si=W8P_Qh1n1rLg3T0S&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Watch Our Reel</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Manicure+Service" data-img-alt="A detailed manicure service in progress">
-                        <img src="video2.mp4" alt="A detailed manicure service in progress" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
-                            <span class="text-white text-lg font-semibold">Manicure</span>
-                        </div>
-                    </div>
-                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Salon+Interior+View" data-img-alt="Interior view of the clean and modern salon">
-                        <img src="https://placehold.co/600x600/374151/e5e7eb?text=Salon+Interior+View" alt="Interior view of the clean and modern salon" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
-                            <span class="text-white text-lg font-semibold">Salon Interior</span>
-                        </div>
-                    </div>
-                    <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer" data-img-src="https://placehold.co/1200x800/374151/e5e7eb?text=Client+Smiling" data-img-alt="A happy client showing off their fresh haircut">
-                        <img src="https://placehold.co/600x600/374151/e5e7eb?text=Client+Smiling" alt="A happy client showing off their fresh haircut" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
-                            <span class="text-white text-lg font-semibold">Happy Client</span>
+                        <div class="relative overflow-hidden rounded-lg shadow-xl group cursor-pointer">
+                            <div class="aspect-w-9 aspect-h-16 w-full h-96">
+                                <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/p1qE1a8_q2g?si=hM0q4f1eQ6Lp7e11&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-70 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-lg font-semibold">Watch Our Reel</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -344,27 +347,6 @@
                     &times;
                 </button>
                 <div id="lightbox-caption" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center text-lg font-semibold bg-gray-950 bg-opacity-70 px-4 py-2 rounded-full"></div>
-            </div>
-        </div>
-        
-        <!-- Shopping Cart Modal -->
-        <div id="cart-modal" class="fixed inset-0 bg-gray-950 bg-opacity-80 hidden items-center justify-center z-[100]">
-            <div class="bg-gray-800 p-8 rounded-lg shadow-xl max-w-lg w-full text-center relative">
-                <button id="close-cart-button" class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-                <h4 class="text-3xl font-bold mb-6 text-white">Your Cart</h4>
-                <div id="cart-items-list" class="space-y-4 max-h-80 overflow-y-auto pr-2">
-                    <!-- Cart items will be dynamically added here -->
-                </div>
-                <div id="cart-summary" class="mt-6 pt-4 border-t border-gray-700">
-                    <p class="text-xl font-bold text-white flex justify-between">
-                        <span>Total:</span>
-                        <span id="cart-total">Ksh 0</span>
-                    </p>
-                    <button id="checkout-button" class="mt-6 w-full bg-emerald-400 text-gray-900 py-3 rounded-full font-semibold hover:bg-emerald-500 transition-colors">Checkout</button>
-                </div>
-                <p id="empty-cart-message" class="text-gray-500 mt-4 hidden">Your cart is empty.</p>
             </div>
         </div>
 
@@ -419,7 +401,6 @@
                                     <option value="Deep Tissue Massage">Deep Tissue Massage</option>
                                     <option value="Aromatherapy">Aromatherapy</option>
                                     <option value="Hot Stone Therapy">Hot Stone Therapy</option>
-                                    <option value="Body Scrub">Body Scrub</option>
                                 </select>
                             </div>
                             <div>
@@ -460,9 +441,7 @@
                             </p>
                             <p class="text-gray-300 flex items-center space-x-3 mb-2">
                                 <i class="fas fa-phone-alt text-emerald-400"></i>
-                                <span>+254 793 512 077</span>
-                                <span>+254 726 392 544</span>
-                                <span>+254 792 136 268</span>
+                                <span>+254 712 345 678</span>
                             </p>
                             <p class="text-gray-300 flex items-center space-x-3">
                                 <i class="fas fa-envelope text-emerald-400"></i>
@@ -473,7 +452,7 @@
                                 <ul class="text-gray-300">
                                     <li>Mon - Fri: 9:00 AM - 7:00 PM</li>
                                     <li>Sat: 10:00 AM - 6:00 PM</li>
-                                    <li>Sun: 10:00 AM - 5:00 PM</li>
+                                    <li>Sun: Closed</li>
                                 </ul>
                             </div>
                         </div>
@@ -508,12 +487,12 @@
             <div id="lightbox-caption" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center text-lg font-semibold bg-gray-950 bg-opacity-70 px-4 py-2 rounded-full"></div>
         </div>
     </div>
-
+    
     <!-- Firebase SDKs -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, addDoc, onSnapshot, collection, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, doc, addDoc, onSnapshot, collection, query } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // Global variables provided by the environment
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
@@ -692,12 +671,40 @@
             messageBox.classList.add('hidden');
         });
 
+        // Gallery Tabs functionality
+        const galleryTabs = document.querySelectorAll('.gallery-tab');
+        const galleryContents = document.querySelectorAll('.gallery-tab-content');
+
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.getAttribute('data-tab');
+
+                // Update tab styles
+                galleryTabs.forEach(t => {
+                    t.classList.remove('bg-emerald-400', 'text-gray-900', 'border-transparent');
+                    t.classList.add('text-emerald-400', 'border', 'border-emerald-400', 'hover:bg-emerald-400', 'hover:text-gray-900');
+                });
+                tab.classList.remove('text-emerald-400', 'border', 'border-emerald-400', 'hover:bg-emerald-400', 'hover:text-gray-900');
+                tab.classList.add('bg-emerald-400', 'text-gray-900', 'border-transparent');
+
+                // Hide all content and show the active one
+                galleryContents.forEach(content => {
+                    if (content.getAttribute('data-tab-content') === targetTab) {
+                        content.classList.remove('hidden');
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                        content.classList.add('hidden');
+                    }
+                });
+            });
+        });
 
         // Lightbox functionality
         const lightboxModal = document.getElementById('lightbox-modal');
         const lightboxImage = document.getElementById('lightbox-image');
         const lightboxCaption = document.getElementById('lightbox-caption');
-        const galleryImages = document.querySelectorAll('#gallery .group');
+        const galleryImages = document.querySelectorAll('.gallery-image-container');
 
         galleryImages.forEach(imageContainer => {
             imageContainer.addEventListener('click', () => {
@@ -783,103 +790,6 @@
 
         // Initial render
         renderTestimonials();
-
-        // Shopping Cart Functionality
-        const cartModal = document.getElementById('cart-modal');
-        const cartItemsList = document.getElementById('cart-items-list');
-        const cartTotalSpan = document.getElementById('cart-total');
-        const navCartButton = document.getElementById('nav-cart-button');
-        const mobileCartButton = document.getElementById('mobile-cart-button');
-        const closeCartButton = document.getElementById('close-cart-button');
-        const checkoutButton = document.getElementById('checkout-button');
-        const emptyCartMessage = document.getElementById('empty-cart-message');
-        const navItemCount = document.getElementById('cart-item-count');
-        const mobileItemCount = document.getElementById('mobile-cart-item-count');
-        
-        let cart = [];
-
-        function updateCartDisplay() {
-            cartItemsList.innerHTML = '';
-            let total = 0;
-            if (cart.length === 0) {
-                emptyCartMessage.classList.remove('hidden');
-                cartTotalSpan.textContent = 'Ksh 0';
-                checkoutButton.disabled = true;
-            } else {
-                emptyCartMessage.classList.add('hidden');
-                checkoutButton.disabled = false;
-                cart.forEach(item => {
-                    const itemElement = document.createElement('div');
-                    itemElement.className = 'flex justify-between items-center bg-gray-700 p-4 rounded-lg';
-                    itemElement.innerHTML = `
-                        <p class="text-white font-semibold">${item.name}</p>
-                        <p class="text-gray-400">Ksh ${item.price}</p>
-                    `;
-                    cartItemsList.appendChild(itemElement);
-                    total += item.price;
-                });
-                cartTotalSpan.textContent = `Ksh ${total}`;
-            }
-            navItemCount.textContent = cart.length;
-            mobileItemCount.textContent = cart.length;
-        }
-
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const productId = e.target.getAttribute('data-id');
-                const productName = e.target.getAttribute('data-name');
-                const productPrice = parseInt(e.target.getAttribute('data-price'));
-                
-                const existingItem = cart.find(item => item.id === productId);
-                if (!existingItem) {
-                    cart.push({ id: productId, name: productName, price: productPrice });
-                    messageBoxTitle.textContent = "Item Added to Cart!";
-                    messageBoxText.textContent = `${productName} has been added.`;
-                    messageBox.classList.remove('hidden');
-                    messageBox.classList.add('flex');
-                } else {
-                    messageBoxTitle.textContent = "Item Already In Cart";
-                    messageBoxText.textContent = `${productName} is already in your cart.`;
-                    messageBox.classList.remove('hidden');
-                    messageBox.classList.add('flex');
-                }
-                updateCartDisplay();
-            });
-        });
-
-        navCartButton.addEventListener('click', () => {
-            cartModal.classList.remove('hidden');
-            cartModal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        });
-
-        mobileCartButton.addEventListener('click', () => {
-            cartModal.classList.remove('hidden');
-            cartModal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeCartButton.addEventListener('click', () => {
-            cartModal.classList.remove('flex');
-            cartModal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        });
-
-        checkoutButton.addEventListener('click', () => {
-            if (cart.length > 0) {
-                cartModal.classList.remove('flex');
-                cartModal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-                
-                messageBoxTitle.textContent = "Checkout Successful!";
-                messageBoxText.textContent = "Thank you for your purchase! Your order has been placed.";
-                messageBox.classList.remove('hidden');
-                messageBox.classList.add('flex');
-
-                cart = [];
-                updateCartDisplay();
-            }
-        });
     </script>
 </body>
 </html>
